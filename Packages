@@ -1,0 +1,16 @@
+Package: com.yourname.telegrambgdownloader
+Version: 0.0.1
+Architecture: iphoneos-arm64
+Maintainer: YourName
+Installed-Size: 172
+Depends: mobilesubstrate
+Filename: debs/com.yourname.telegrambgdownloader_0.0.1_iphoneos-arm64.deb
+Size: 6680
+MD5sum: 5030e2efafb153199fe1b95fd47c5c30
+SHA1: 989137b0cf28e3fac4e6313390b3af79da084bc0
+SHA256: b4ac6535799156c61645761ebddac4074a68f796b227dd5eded893570b0ede3a
+Section: Tweaks
+Description: Keep Telegram downloads alive in the background on iOS 18.
+Author: YourName
+Name: TelegramBGDownloader
+
