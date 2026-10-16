@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mody repo</title>
+<style>
+  :root {
+    --bg: #0b0d14;
+    --card: #141826;
+    --line: #232a40;
+    --text: #eef1f8;
+    --muted: #8d97b5;
+    --accent: #6c8cff;
+    --accent2: #a46bff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1200px 600px at 50% -10%, #1b2250 0%, var(--bg) 60%);
+    color: var(--text);
+    font-family: -apple-system, "SF Pro Text", "Segoe UI", Tahoma, sans-serif;
+    min-height: 100vh;
+    padding: env(safe-area-inset-top, 0px) 18px 40px;
+  }
+  .wrap { max-width: 520px; margin: 0 auto; }
+  header { text-align: center; padding: 48px 0 28px; }
+  .logo {
+    width: 92px; height: 92px; border-radius: 22px; margin: 0 auto 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 44px; font-weight: 800; color: #fff;
+    box-shadow: 0 12px 40px rgba(108,140,255,.35);
+  }
+  h1 { font-size: 30px; letter-spacing: .5px; }
+  .sub { color: var(--muted); margin-top: 8px; font-size: 15px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 18px;
+    margin-top: 16px;
+  }
+  .card h2 { font-size: 16px; margin-bottom: 12px; color: var(--muted); font-weight: 600; }
+  .url {
+    direction: ltr; text-align: left;
+    background: #0d1120; border: 1px dashed var(--line);
+    border-radius: 12px; padding: 12px 14px;
+    font-family: ui-monospace, Menlo, monospace; font-size: 14px;
+    word-break: break-all;
+  }
+  button, .btn {
+    display: block; width: 100%;
+    margin-top: 10px; padding: 14px;
+    border: 0; border-radius: 14px;
+    font-size: 16px; font-weight: 700;
+    text-align: center; text-decoration: none; cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+  }
+  .btn.alt {
+    background: #1c2238; border: 1px solid var(--line); font-weight: 600;
+  }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 28px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">M</div>
+    <h1>mody repo</h1>
+    <p class="sub">أدوات جيلبريك مصنوعة بعناية لـ iOS</p>
+  </header>
+
+  <div class="card">
+    <h2>رابط السورس</h2>
+    <div class="url" id="u">https://mody-iq.github.io</div>
+    <button id="copy">نسخ الرابط</button>
+  </div>
+
+  <div class="card">
+    <h2>إضافة بنقرة واحدة</h2>
+    <a class="btn" href="sileo://source/https://mody-iq.github.io">إضافة إلى Sileo</a>
+    <a class="btn alt" href="zbra://sources/add/https://mody-iq.github.io">إضافة إلى Zebra</a>
+    <a class="btn alt" href="installer://add/repo=https://mody-iq.github.io">إضافة إلى Installer</a>
+  </div>
+
+  <footer>© mody</footer>
+</div>
+
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this;
+    var t = document.getElementById('u').textContent;
+    function ok() { b.textContent = 'تم النسخ ✓'; setTimeout(function () { b.textContent = 'نسخ الرابط'; }, 1800); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(t).then(ok); }
+    else {
+      var r = document.createRange(); r.selectNode(document.getElementById('u'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      document.execCommand('copy'); ok();
+    }
+  });
+</script>
+</body>
+</html>
