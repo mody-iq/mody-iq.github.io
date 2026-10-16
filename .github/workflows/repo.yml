@@ -1,0 +1,33 @@
+name: Build Repo
+
+on:
+  push:
+    paths:
+      - 'debs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y dpkg-dev bzip2 gzip
+
+      - name: Generate Packages
+        run: |
+          dpkg-scanpackages -m debs /dev/null > Packages
+          gzip -k -f Packages
+          bzip2 -k -f Packages
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add Packages Packages.gz Packages.bz2
+          git commit -m "Update packages" || echo "No changes"
+          git push
