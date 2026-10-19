@@ -1,3 +1,18 @@
+Package: com.mody.homebarhider
+Version: 1.0.2
+Architecture: iphoneos-arm64
+Maintainer: mody
+Installed-Size: 168
+Filename: debs/com.mody.homebarhider_1.0.2_iphoneos-arm64.deb
+Size: 3054
+MD5sum: 93a6ed6a3f1eb19d7eae8098ea6064b7
+SHA1: c3a219ece3c03aeedc1182e94c008304ffd66376
+SHA256: be5e25db63f609ad9fa91a40257d5d5584584f260a3738f345450911fc13565a
+Section: Tweaks
+Description: Hides the Home Indicator bar at the bottom of the screen
+Author: mody
+Name: HomeBarHider
+
 Package: com.yourname.telegrambgdownloader
 Version: 1.0.0
 Architecture: iphoneos-arm64
